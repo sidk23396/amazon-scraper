@@ -1,10 +1,8 @@
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Resource, Api, reqparse, abort
 from sqlalchemy import create_engine
-from json import dumps
-from flask_jsonpify import jsonify
-from config.settings import SERVER_HOST, SERVER_PORT, SERVER_DEBUG_MODE
-from libs.server_utilities import uuid_generator
+from config.config import SERVER_HOST, SERVER_PORT, SERVER_DEBUG_MODE
+from amazon_scraper_app.server_utilities import uuid_generator
 
 db_connect = create_engine('sqlite:///amazon_scraper.db')
 app = Flask(__name__)
