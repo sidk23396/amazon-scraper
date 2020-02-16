@@ -1,15 +1,16 @@
-from amazon_scraper_app.server import my_app
 from datetime import datetime
 
-db = my_app.db
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
-class AmazonProduct(db.Model):
+class AmazonProductDBModel(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.String(20), unique=True, primary_key=True, nullable=False)
     name = db.Column(db.String(50), unique=True, nullable=False)
     url = db.Column(db.String(150), unique=True, nullable=False)
-    prices = db.relationship('AmazonProductPrice', backref='product', lazy=True)
+    prices = db.relationship('AmazonProductPriceDBModel', backref='product', lazy=True)
 
     def __repr__(self):
         return '<Product %r>' % self.name
@@ -18,7 +19,7 @@ class AmazonProduct(db.Model):
         return [p for p in self.prices.price]
 
 
-class AmazonProductPrice(db.Model):
+class AmazonProductPriceDBModel(db.Model):
     __tablename__ = 'price'
     id = db.Column(db.String(20), primary_key=True, nullable=False)
     product_id = db.Column(db.String(20), db.ForeignKey('product.id'), nullable=False)
@@ -29,7 +30,3 @@ class AmazonProductPrice(db.Model):
 
     def __repr__(self):
         return '<ProductPrice %r %r>' % (self.id, self.price)
-
-
-# if __name__ == '__main__':
-#     amazon_scraper_app.run(port=int(7000), host='localhost', debug=True)
