@@ -4,10 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# # Create an Extractor by reading from the YAML file
-# extractor = Extractor.from_yaml_file(os.path.join(ROOT_PATH, 'templates/amazon_product_extractor_template.yml'))
-
-
 def get_exchange_rate(required_curr='eur'):
     try:
         curr_conv_url = 'https://api.exchangeratesapi.io/latest?symbols=GBP'

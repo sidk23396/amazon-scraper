@@ -1,7 +1,9 @@
 from flask_restful import Resource, abort, reqparse
-from amazon_scraper_app.models.server_utilities import uuid_generator
-from amazon_scraper_app.utilities.database_utilities import (get_products, get_product_by_id, delete_product_by_id, add_product_to_db, get_prices_of_product)
+
 from amazon_scraper_app.models.server_utilities import AmazonProduct
+from amazon_scraper_app.models.server_utilities import uuid_generator
+from amazon_scraper_app.utilities.database_utilities import (get_products, get_product_by_id, delete_product_by_id,
+                                                             add_product_to_db, get_prices_of_product)
 
 PRODUCTS = [
         {'name': 'sony_wh1000xm3_headphones',

@@ -23,8 +23,6 @@ class AmazonProductPriceDBModel(db.Model):
     __tablename__ = 'price'
     id = db.Column(db.String(20), primary_key=True, nullable=False)
     product_id = db.Column(db.String(20), db.ForeignKey('product.id'), nullable=False)
-    # product_id = db.Column(db.String, db.ForeignKey('product.id'))
-    # product = db.relationship("AmazonProduct", backref=db.backref("product", uselist=False))
     price = db.Column(db.Float, nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
