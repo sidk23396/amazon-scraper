@@ -21,13 +21,6 @@ parser.add_argument('url')
 parser.add_argument('id')
 
 
-def product_in_list(product_id):
-    for product in PRODUCTS:
-        if product['id'] == product_id:
-            return product
-    return None
-
-
 # Handles requests for one particular product
 class AmazonProductResource(Resource):
     # return price data from db for product
@@ -92,9 +85,6 @@ class AmazonProductPriceResource(Resource):
 
         if prices:
             prices_dates_for_product = [{'price': float(f"{pr.price:.2f}"), 'date': str(pr.date)} for pr in prices]
-            return {'data': prices_dates_for_product}, 200
+            return {'data': {'prices': prices_dates_for_product}}, 200
             
         abort(404)
-
-    # def delete(self, product_id):
-    #     pass

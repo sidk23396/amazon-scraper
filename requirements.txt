@@ -1,6 +1,8 @@
+beautifulsoup4==4.9.3
 bs4==0.0.1
 Flask==0.12.2
 Flask-RESTful==0.3.6
 Flask-SQLAlchemy==2.4.0
-requests
-markdown
+Markdown==3.3.4
+requests==2.25.1
+SQLAlchemy==1.4.1

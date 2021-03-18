@@ -1,4 +1,4 @@
-from amazon_scraper_app.customExceptions import DBOperationException
+from amazon_scraper_app.custom_exceptions import DBOperationException
 from amazon_scraper_app.models.database_models import AmazonProductDBModel, AmazonProductPriceDBModel
 from amazon_scraper_app.models.database_models import db
 from amazon_scraper_app.models.server_utilities import AmazonProduct
