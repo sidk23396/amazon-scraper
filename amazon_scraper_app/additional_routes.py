@@ -1,14 +1,16 @@
-from config.config import ROOT_PATH
-import markdown
-from amazon_scraper_app import my_app
-from amazon_scraper_app.models.database_models import db, AmazonProductPriceDBModel
-from amazon_scraper_app.utilities.database_utilities import get_products
-from amazon_scraper_app.utilities.server_operational_methods import get_price_from_amazon_url
-from amazon_scraper_app.customExceptions import PriceNotFoundException
 import concurrent
 import concurrent.futures
-from amazon_scraper_app.models.server_utilities import uuid_generator
 import os
+
+import markdown
+
+from amazon_scraper_app import my_app
+from amazon_scraper_app.custom_exceptions import PriceNotFoundException
+from amazon_scraper_app.models.database_models import db, AmazonProductPriceDBModel
+from amazon_scraper_app.models.server_utilities import uuid_generator
+from amazon_scraper_app.utilities.database_utilities import get_products
+from amazon_scraper_app.utilities.server_operational_methods import get_price_from_amazon_url
+from config.config import ROOT_PATH
 
 
 def get_price_for_product(product):
