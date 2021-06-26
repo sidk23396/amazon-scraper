@@ -30,7 +30,7 @@ class ScraperApp():
     def run(self, **kwargs):
         self.app.run(host=kwargs.get('host', 'localhost'),
                      port=kwargs.get('port', 5000),
-                     debug=kwargs.get('debug', 5000))
+                     debug=kwargs.get('debug', False))
 
     def _init_db(self):
         self.db.init_app(self.app)
